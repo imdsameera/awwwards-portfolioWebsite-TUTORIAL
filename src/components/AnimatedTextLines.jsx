@@ -22,6 +22,7 @@ const AnimatedTextLines = ({text, className}) => {
 				ease: 'back.out',
 				scrollTrigger: {
 					trigger: containerRef.current,
+					markers: false,
 				},
 			});
 		}
