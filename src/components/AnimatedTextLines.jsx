@@ -16,7 +16,7 @@ const AnimatedTextLines = ({text, className}) => {
 			gsap.from(lineRef.current, {
 				y: 100,
 				opacity: 0,
-				blur: 10,
+				filter: 'blur(10px)',
 				duration: 1,
 				stagger: 0.3,
 				ease: 'back.out',

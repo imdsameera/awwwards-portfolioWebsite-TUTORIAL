@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Hero, ServiceSummary, Services, About, Work} from './sections';
+import {Navbar, Hero, ServiceSummary, Services, About, Work, ContactSummary} from './sections';
 
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
 			<About/>
 			{/*<Work2/>*/}
 			<Work/>
+			<ContactSummary/>
 			<section className="min-h-screen"></section>
 			<section className="min-h-screen"></section>
 		</div>
