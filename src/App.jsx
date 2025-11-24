@@ -1,21 +1,54 @@
-import React from 'react';
-import {Navbar, Hero, ServiceSummary, Services, About, Work, ContactSummary} from './sections';
-
+import React, {useEffect, useState, useRef} from 'react';
+import {
+	Navbar,
+	Hero,
+	ServiceSummary,
+	Services,
+	About,
+	Work,
+	ContactSummary,
+	Contact,
+} from './sections';
+import {useProgress} from '@react-three/drei';
+import {ReactLenis} from 'lenis/react';
 
 const App = () => {
+	const {progress} = useProgress();
+	const [isReady, setIsReady] = useState(false);
+
+	useEffect(() => {
+		if (progress === 100) {
+			setIsReady(true);
+		}
+	}, [progress]);
+
+
 	return (
-		<div className="relative w-screen min-h-screen">
-			<Navbar/>
-			<Hero/>
-			<ServiceSummary/>
-			<Services/>
-			<About/>
-			{/*<Work2/>*/}
-			<Work/>
-			<ContactSummary/>
-			<section className="min-h-screen"></section>
-			<section className="min-h-screen"></section>
-		</div>
+		<ReactLenis root className="relative w-screen min-h-screen overflow-x-auto">
+			{!isReady && (
+				<div
+					className="fixed inset-0 z-999 flex flex-col items-center justify-center bg-black text-white transition-opacity duration-700 font-light">
+					<p className="mb-4 text-xl tracking-widest animate-pulse">Loading {Math.floor(progress)}%</p>
+					<div className="relative h-8 overflow-hidden rounded w-60 bg-white/20">
+						<div className="absolute top-0 left-0 h-full transition-all duration-300 bg-white"
+						     style={{width: `${progress}%`}}></div>
+					</div>
+				</div>
+			)}
+
+			<div
+				className={`${isReady ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
+			>
+				<Navbar/>
+				<Hero/>
+				<ServiceSummary/>
+				<Services/>
+				<About/>
+				<Work/>
+				<ContactSummary/>
+				<Contact/>
+			</div>
+		</ReactLenis>
 	);
 };
 export default App;

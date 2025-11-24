@@ -17,7 +17,7 @@ const ContactSummary = () => {
 				scrub: 0.5,
 				pin: true,
 				pinSpacing: true,
-				markers: true,
+				markers: false,
 			},
 		});
 	});

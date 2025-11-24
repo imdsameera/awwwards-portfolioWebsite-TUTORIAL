@@ -5,5 +5,6 @@ import Services from './Services';
 import About from './About';
 import Work from './Work';
 import ContactSummary from './ContactSummary';
+import Contact from './Contact';
 
-export {Navbar, Hero, ServiceSummary, Services, About, Work, ContactSummary};
+export {Navbar, Hero, ServiceSummary, Services, About, Work, ContactSummary, Contact};
